@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Greeting from './components/pure/greeting';
 import GreetingF from './components/pure/GreetingF';
+import TaskListComponent from './components/container/task_list';
 
 function App() {
 
@@ -12,7 +13,12 @@ function App() {
 
           {/* Componente propio Greetings.jsx */}
           {/* <Greeting name= "Carlos"></Greeting> */}
-          <GreetingF name="Carlos"></GreetingF>
+
+          {/* Componente de ejemplo funcional */}
+          {/* <GreetingF name="Carlos"></GreetingF> */}
+
+          {/* Componente de listado de tareas */}
+          <TaskListComponent></TaskListComponent>
 
       </header>
     </div>
