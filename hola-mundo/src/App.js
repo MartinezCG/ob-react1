@@ -34,8 +34,6 @@ function App() {
               Contenido del props.children
             </h3>
           </Ejemplo4>
-          
-
       </header>
     </div>
   );
