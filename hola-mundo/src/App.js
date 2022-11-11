@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" /> */}
 
           {/* Componente propio Greetings.jsx */}
           {/* <Greeting name= "Carlos"></Greeting> */}
@@ -38,8 +38,9 @@ function App() {
           </Ejemplo4>
           */}
 
-          <GreetingStyled name= 'Carlos'></GreetingStyled>
-      </header>
+          {/* <GreetingStyled name= 'Carlos'></GreetingStyled> */}
+      {/* </header> */}
+      <TaskListComponent></TaskListComponent>
     </div>
   );
 }
