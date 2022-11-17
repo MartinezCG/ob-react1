@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import ContactList from './components/container/contact_list';
-import ClockF from './components/clockF';
-import Clock from './components/Clock';
+import ClockF from './components/pure/clockF';
+import Clock from './components/pure/Clock';
+
+
 
 function App() {
   return (
@@ -10,10 +12,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
-        {/* <ContactList></ContactList> */}
+        <ContactList></ContactList>
         {/* <ClockF></ClockF> */}
 
-        <ClockF></ClockF>
+        
         
       </header>
     </div>

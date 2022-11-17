@@ -29,8 +29,31 @@ const TaskListComponent = () => {
         };
     }, [Tasks]);
 
-    const changeCompleted = (id) => {
-        console.log('TO DO: Cambiar estado de una tarea')
+    function completeTask(task){
+        console.log('Complete this task:', task)
+        const index = Tasks.indexOf(task)
+        const tempTasks = [...Tasks]
+        tempTasks[index].completed= !tempTasks[index].completed
+
+        // We update the state of the component with the new list of tasks and it will update the
+        // iteration of the tasks in order yo show the task updated
+        setTasks(tempTasks)
+    }
+
+    function deleteTask(task){
+        console.log('Delete this task:', task)
+        const index = Tasks.indexOf(task)
+        const tempTasks = [...Tasks]
+        tempTasks.splice(index,1)
+        setTasks(tempTasks)
+    }
+
+    function addTask(task){
+        console.log('add this task:', task)
+        const index = Tasks.indexOf(task)
+        const tempTasks = [...Tasks]
+        tempTasks.push(task)
+        setTasks(tempTasks)
     }
 
     return (
@@ -59,7 +82,9 @@ const TaskListComponent = () => {
                                     return (
                                             <TaskComponent 
                                                 key={index} 
-                                                task={Task} >
+                                                task={Task} 
+                                                complete={completeTask} 
+                                                remove = {deleteTask}>
                                             </TaskComponent>
                                         )
                                     })
@@ -68,11 +93,11 @@ const TaskListComponent = () => {
                             </tbody>
                         </table>
                     </div>
-                    <TaskForm></TaskForm>
+                    
                 </div>
             </div>
             {/* <TaskComponent task={defaultTask} ></TaskComponent> */}
-
+            <TaskForm add={addTask}></TaskForm>
         </div>
     );
 };

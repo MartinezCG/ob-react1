@@ -41,13 +41,11 @@ function App() {
 
           {/* <GreetingStyled name= 'Carlos'></GreetingStyled> */}
       {/* </header> */}
-
-
       {/* Gestion de eventos */}
+      {/* <Father></Father> */}
 
-      <Father></Father>
-
-      {/* <TaskListComponent></TaskListComponent> */}
+      {/* PROYECTO FINAL */}
+      <TaskListComponent></TaskListComponent>
     </div>
   );
 }
