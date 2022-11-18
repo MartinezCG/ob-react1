@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Contacto } from '../../models/contacto.class';
 
 
+import '../../styles/contact.css'
+
 const ContactComponent = ({ contacto, connected, remove }) => {
 
     useEffect(() => {
@@ -48,7 +50,7 @@ const ContactComponent = ({ contacto, connected, remove }) => {
                 <td>
                     { estadoConexion() }
                 </td>
-                <td className='align-middle'>
+                <td className='align-middle contact-action'>
                     { estaConected() }
                     <i className='bi-trash task-action' style={{color: 'grey'}} onClick={() => remove(contacto)} ></i>
                 </td>

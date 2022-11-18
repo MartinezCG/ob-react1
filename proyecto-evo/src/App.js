@@ -3,6 +3,7 @@ import './App.css';
 import ContactList from './components/container/contact_list';
 import ClockF from './components/pure/clockF';
 import Clock from './components/pure/Clock';
+import Figura from './components/pure/figura';
 
 
 
@@ -10,9 +11,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
 
-        <ContactList></ContactList>
+
+        <Figura></Figura>
+        {/* <ContactList></ContactList> */}
         {/* <ClockF></ClockF> */}
 
         
