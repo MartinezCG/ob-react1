@@ -6,6 +6,7 @@ import TaskComponent from '../pure/task';
 // Importamos la hoja de estilos de task.scss
 import '../../styles/task.scss';
 import TaskForm from '../pure/forms/taskForm';
+import TaskFormFormik from '../pure/forms/taskFormFormik';
 
 const TaskListComponent = () => {
     
@@ -23,7 +24,9 @@ const TaskListComponent = () => {
     //Control del ciclo de vida del componente
     useEffect(() => {
         console.log('Task State has been modified')
-        setLoading(false)
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000);
         return () => {
             console.log('TaskList component is going to Unmount...')
         };
@@ -50,10 +53,57 @@ const TaskListComponent = () => {
 
     function addTask(task){
         console.log('add this task:', task)
-        const index = Tasks.indexOf(task)
         const tempTasks = [...Tasks]
         tempTasks.push(task)
         setTasks(tempTasks)
+    }
+
+    const Table = () =>{
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>Title</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Priority</th>
+                        <th scope='col'>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Tasks.map((Task,index) => {
+                        return (
+                                <TaskComponent 
+                                    key={index} 
+                                    task={Task} 
+                                    complete={completeTask} 
+                                    remove = {deleteTask}>
+                                </TaskComponent>
+                             )
+                        })
+                    }
+                                
+                </tbody>
+            </table>
+        )
+    }
+
+    let tasksTable
+
+    if(Tasks.length > 0){
+        tasksTable = <Table></Table>
+    } else {
+        tasksTable = (
+        <div>
+            <h3>There aren't tasks to show</h3>
+            <h4>Please, create one</h4>
+        </div>
+        )
+    }
+
+    const loadingStyle = {
+        color: 'grey',
+        fontSize: '30px',
+        fontWeight: "bold"
     }
 
     return (
@@ -68,36 +118,14 @@ const TaskListComponent = () => {
                     </div>
                     {/* Card Body (Content) */}
                     <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position:'relative', height: '400px' } }>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope='col'>Title</th>
-                                    <th scope='col'>Description</th>
-                                    <th scope='col'>Priority</th>
-                                    <th scope='col'>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {Tasks.map((Task,index) => {
-                                    return (
-                                            <TaskComponent 
-                                                key={index} 
-                                                task={Task} 
-                                                complete={completeTask} 
-                                                remove = {deleteTask}>
-                                            </TaskComponent>
-                                        )
-                                    })
-                                }
-                                
-                            </tbody>
-                        </table>
+                        {/* TODO: Add Loading Spinner */}
+                        {Loading ? (<p style={loadingStyle}>Loading tasks...</p>) : tasksTable}
                     </div>
                     
                 </div>
             </div>
             {/* <TaskComponent task={defaultTask} ></TaskComponent> */}
-            <TaskForm add={addTask}></TaskForm>
+            <TaskFormFormik add={addTask} length={Tasks.length}></TaskFormFormik>
         </div>
     );
 };
