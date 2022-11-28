@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 
@@ -16,6 +17,8 @@ const loginSchema = Yup.object().shape(
 
 
 const LoginFormik = () => {
+
+    const history = useNavigate()
 
     const initialCredentials = {
         email:'',
@@ -37,7 +40,8 @@ const LoginFormik = () => {
                     alert(JSON.stringify(values, null, 2));
 
                     // We save the data in localStorage
-                    localStorage.setItem('credentials', values)
+                    await localStorage.setItem('credentials', values)
+                    history('/profile')
                 }}
             >
 
