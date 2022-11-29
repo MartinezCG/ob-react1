@@ -1,29 +1,49 @@
 import React from 'react';
-import { useNavigate , useLocation } from "react-router-dom";
+import { useHistory , useLocation } from "react-router-dom";
 
 const HomePage = () => {
-
-        /* Doesn't use push, just use history and put the 
-    path that use as parameter, this will store all the routes that we clicked */
+    
+    
     const location = useLocation();
-    const history = useNavigate();
+    const history = useHistory();
     console.log('We are in route:', location.pathname)
 
-
-    /* Doesn't use push, just use history and put the 
-    path that use as parameter, this will store all the routes that we clicked */
-    const navigated = (path) => {
-        history(path)
+    const navigate = (path) => {
+        history.push(path)
     }
 
-    /* Use history() with a -1 to go BACK or with an 1 to go forward */
+    const goBack = () => {
+        history.goBack()
+    }
+
+    const goForward = () => {
+        history.goForward()
+    }
+
+    const navigateProps = (path) => {
+     
+        history.push({
+            pathname: path,
+            search: '?online=true', //Query params
+            state: {
+                online: true
+            }
+        })
+
+    }
 
 
     return (
         <div>
             <h1>Home Page</h1>
-            <button onClick={() => navigated('/profile')}>
-                Go to Profile
+            <button onClick={ () => navigateProps ('/online-state') }>
+                Go to Page with State / Query Params
+            </button>
+            <button onClick={ goBack }>
+                Go Back
+            </button>
+            <button onClick={ goForward }>
+                Go Forward
             </button>
             
         </div>

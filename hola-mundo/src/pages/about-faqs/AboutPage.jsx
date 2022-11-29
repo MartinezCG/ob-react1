@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation , useNavigate } from "react-router-dom";
+import { useLocation , useHistory } from "react-router-dom";
 
 /* useHistory has been changed by useNavigate
 
@@ -8,24 +8,23 @@ import { useLocation , useNavigate } from "react-router-dom";
 const AboutPage = () => {
 
     const location = useLocation();
-    const history = useNavigate();
+    const history = useHistory();
     console.log('We are in route:', location.pathname)
 
 
-    /* Doesn't use push, just use history and put the 
-    path that use as parameter, this will store all the routes that we clicked */
-    const navigated = (path) => {
-        history(path)
+    
+    const navigate = (path) => {
+        history.push(path)
     }
 
-    /* Use history() with a -1 to go BACK or with an 1 to go forward */
+    
 
     const goBack = () => {
-        history(-1)
+        history.goBack()
     }
 
     const goForward = () => {
-        history(1)
+        history.goForward()
     }
 
     return (
@@ -34,7 +33,7 @@ const AboutPage = () => {
                 About | FAQs
             </h1>
             <div>
-                <button onClick={ () => navigated('/') }>
+                <button onClick={ () => navigate('/') }>
                     Go To Home
                 </button>
                 <button onClick={ goBack }>

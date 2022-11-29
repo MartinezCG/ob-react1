@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const NotFoundPage = () => {
 
-    const history = useNavigate()
+    const history = useHistory()
 
     const navigateTo = (path) => {
-        history(path)
+        history.push(path)
     }
 
     return (
