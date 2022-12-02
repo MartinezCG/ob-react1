@@ -16,6 +16,7 @@ import AsyncExample from './components/pure/AsyncExample';
 import ObservableExample from './components/pure/ObservableExample';
 import FetchExample from './components/pure/fetchExample';
 import AxiosExample from './components/pure/axiosExample';
+import AxiosCrudExample from './components/pure/axiosCrudExample';
 
 function App() {
 
@@ -62,7 +63,8 @@ function App() {
       {/* <AsyncExample/> */}
       {/* <ObservableExample/> */}
       {/* <FetchExample></FetchExample> */}
-      <AxiosExample/>
+      {/* <AxiosExample/> */}
+      <AxiosCrudExample></AxiosCrudExample>
 
       {/* PROYECTO FINAL */}
       {/* <TaskListComponent></TaskListComponent> */}
