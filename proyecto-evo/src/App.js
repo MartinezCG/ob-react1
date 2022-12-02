@@ -4,6 +4,7 @@ import ContactList from './components/container/contact_list';
 import ClockF from './components/pure/clockF';
 import Clock from './components/pure/Clock';
 import Figura from './components/pure/figura';
+import JokeVotes from './components/pure/jokeVotes';
 
 
 
@@ -13,9 +14,10 @@ function App() {
       <header className="App-header">
 
 
-        <Figura></Figura>
+        {/* <Figura></Figura> */}
         {/* <ContactList></ContactList> */}
         {/* <ClockF></ClockF> */}
+        <JokeVotes></JokeVotes>
 
         
         
