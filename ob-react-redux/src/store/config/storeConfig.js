@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { createStore } from "redux"
 import { composeWithDevTools } from "redux-devtools-extension";
 import { rootReducer } from "../reducers/rootReducer";
 
 export const createAppStore = () => {
-    let store = configureStore(rootReducer, composeWithDevTools())
+    let store = createStore(rootReducer, composeWithDevTools())
 
     return store
 }
