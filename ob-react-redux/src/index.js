@@ -7,17 +7,20 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 // Import config function of App Store
-import { createAppStore } from './store/config/storeConfig'
+import { createAppStore, createAsyncAppStore } from './store/config/storeConfig'
+import AppReduxSaga from './AppReduxSaga';
 
 // We create the App Store
-let appStore = createAppStore()
+// let appStore = createAppStore()
+let appAsyncStore = createAsyncAppStore()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={appStore}>
+  <Provider store={appAsyncStore}>
 
     <React.StrictMode>
-      <App />
+      {/* <App/> */}
+      <AppReduxSaga />
     </React.StrictMode>
   </Provider>
 );
