@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Para el template del HTML que va a usar Webpack
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Reducir los CSS
 const { SourceMapDevToolPlugin } = require('webpack'); // Para conocer el Source Map de nuestro proyecto
+ // Loader de Babel
 
 // Configuracion del puerto
 const port = process.env.PORT || 3000;
@@ -41,7 +42,9 @@ module.exports = {
       {
         test: /(\.js|\.jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+        },
         query: {
           presets: [
             '@babel/env',
